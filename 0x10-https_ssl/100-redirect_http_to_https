@@ -26,7 +26,7 @@ frontend www-http
 
 
 frontend www-https
-   bind   0.0.0.0:443 ssl crt /etc/letsencrypt/live/www.tapiwanashe.tech/all.pem
+   bind   0.0.0.0:443 ssl crt /etc/letsencrypt/live/www.dreamanalyst.tech/all.pem
    reqadd X-Forwarded-Proto:\ https
    acl    letsencrypt-acl path_beg /.well-known/acme-challenge/
    use_backend letsencrypt-backend if letsencrypt-acl
