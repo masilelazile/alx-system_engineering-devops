@@ -1,6 +1,13 @@
-# automated puppet fix (find out why Apache is returning a 500 error)
+# 0-strace_is_your_friend.pp
 
-exec { 'Fix wordpress site':
-  command  => 'sudo sed -i "s/.phpp/.php/" /var/www/html/wp-settings.php',
-  provider => shell,
+# Ensure Apache service is running
+service { 'apache2':
+  ensure => 'running',
+}
+
+# Replace a potentially problematic file
+file { '/path/to/problematic/file':
+  ensure  => 'file',
+  source  => '/path/to/valid/file',
+  require => Service['apache2'],
 }
