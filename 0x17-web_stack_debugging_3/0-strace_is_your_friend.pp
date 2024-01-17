@@ -1,5 +1,3 @@
-# 0-strace_is_your_friend.pp
-
 # Ensure Apache service is running
 service { 'apache2':
   ensure => 'running',
